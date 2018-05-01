@@ -12,7 +12,7 @@
    - application will start on top of kestrel on url: http://localhost:5000
 
 Dockerise the application steps
-1, Create new DockerFile in root of the application
+1, Create new "DockerFile" in root of the application
 
     FROM microsoft/aspnetcore-build:2.0 AS build-env
     WORKDIR /app
@@ -48,3 +48,5 @@ Dockerise the application steps
 4, Execute the following command to get the container accessible
     
    ``` docker run -d -p 8080:80 --name myapp aspnetapp
+
+   This will allow us to see that the application is hosted on http://localhost:8080
