@@ -42,11 +42,11 @@ Dockerise the application steps
 
 3, Execute the following command
 
-    ``` docker build -t aspnetapp .
+    docker build -t aspnetapp .
 
     to build the application
 4, Execute the following command to get the container accessible
     
-   ``` docker run -d -p 8080:80 --name myapp aspnetapp
+   docker run -d -p 8080:80 --name myapp aspnetapp
 
    This will allow us to see that the application is hosted on http://localhost:8080
