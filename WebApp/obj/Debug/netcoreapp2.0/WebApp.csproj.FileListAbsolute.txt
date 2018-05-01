@@ -1,0 +1,12 @@
+/Users/pavelsvarc/Desktop/ContainersTraining/4/WebApp/bin/Debug/netcoreapp2.0/app.db
+/Users/pavelsvarc/Desktop/ContainersTraining/4/WebApp/bin/Debug/netcoreapp2.0/WebApp.deps.json
+/Users/pavelsvarc/Desktop/ContainersTraining/4/WebApp/bin/Debug/netcoreapp2.0/WebApp.runtimeconfig.json
+/Users/pavelsvarc/Desktop/ContainersTraining/4/WebApp/bin/Debug/netcoreapp2.0/WebApp.runtimeconfig.dev.json
+/Users/pavelsvarc/Desktop/ContainersTraining/4/WebApp/bin/Debug/netcoreapp2.0/WebApp.dll
+/Users/pavelsvarc/Desktop/ContainersTraining/4/WebApp/bin/Debug/netcoreapp2.0/WebApp.pdb
+/Users/pavelsvarc/Desktop/ContainersTraining/4/WebApp/obj/Debug/netcoreapp2.0/WebApp.csproj.CoreCompileInputs.cache
+/Users/pavelsvarc/Desktop/ContainersTraining/4/WebApp/obj/Debug/netcoreapp2.0/UserSecretsAssemblyInfo.cs
+/Users/pavelsvarc/Desktop/ContainersTraining/4/WebApp/obj/Debug/netcoreapp2.0/WebApp.AssemblyInfoInputs.cache
+/Users/pavelsvarc/Desktop/ContainersTraining/4/WebApp/obj/Debug/netcoreapp2.0/WebApp.AssemblyInfo.cs
+/Users/pavelsvarc/Desktop/ContainersTraining/4/WebApp/obj/Debug/netcoreapp2.0/WebApp.dll
+/Users/pavelsvarc/Desktop/ContainersTraining/4/WebApp/obj/Debug/netcoreapp2.0/WebApp.pdb
