@@ -1,13 +1,15 @@
 version: '3.3'
 
 services:
-  persons:
+  aspnetapp:
     image: aspnetapp
     build:
       context: .
-      dockerfile: ./WebApp/Dockerfile
+      dockerfile: ./Dockerfile
     depends_on: 
-    - db
+      - db
+    ports: 
+      - "8080:80"
   db:
     image: "microsoft/mssql-server-linux:latest"
     container_name: testDb
@@ -15,5 +17,5 @@ services:
       - "1433:1433"
     environment:
       ACCEPT_EULA:  "Y"
-      SA_PASSWORD:  "DemoPassword.1"
+      SA_PASSWORD:  "DemoPassword"
       MSSQL_PID: "Developer"

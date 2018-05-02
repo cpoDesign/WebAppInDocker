@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WebApp.Demo;
 using WebApp.Models;
 
 namespace WebApp.Controllers
@@ -27,6 +28,25 @@ namespace WebApp.Controllers
             ViewData["Message"] = "Your contact page.";
 
             return View();
+        }
+
+        public IActionResult Test()
+        {
+            try{
+                using (var db = new BloggingContext())
+                {
+                    var blogs = db.Blogs
+                        .Where(b => b.Rating > 3)
+                        .OrderBy(b => b.Url)
+                        .ToList();
+                        ViewData["Message"]  = $"Number Of posts{blogs.Count}";
+                }
+            }catch(Exception ex){
+
+                 ViewData["Message"] = ex.Message;
+            }
+
+             return View();
         }
 
         public IActionResult Error()
