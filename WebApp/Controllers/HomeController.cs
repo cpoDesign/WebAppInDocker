@@ -10,8 +10,13 @@ using WebApp.Models;
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
-    {
-        public IActionResult Index()
+    {private readonly BloggingContext _context;
+
+            public HomeController(BloggingContext context)
+            {
+            _context = context;
+            }
+            public IActionResult Index()
         {
             return View();
         }
@@ -33,14 +38,10 @@ namespace WebApp.Controllers
         public IActionResult Test()
         {
             try{
-                using (var db = new BloggingContext())
-                {
-                    var blogs = db.Blogs
-                        .Where(b => b.Rating > 3)
-                        .OrderBy(b => b.Url)
-                        .ToList();
+               
+                    var blogs = _context.Posts.ToList();
                         ViewData["Message"]  = $"Number Of posts{blogs.Count}";
-                }
+               
             }catch(Exception ex){
 
                  ViewData["Message"] = ex.Message;

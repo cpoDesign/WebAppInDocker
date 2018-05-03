@@ -1,5 +1,13 @@
 == Installation of application and its exposure through docker
 
+== OutStanding questions
+1, how do we create database when db image is being created
+2, how do apply EF query against said database
+
+
+== Current gide so far ==
+
+
 1, Install .NET Core 2 SDK
 2, Create directory into your website directory
    : dotnet new mvc --auth Individual -f netcoreapp2.0
@@ -60,3 +68,6 @@ Dockerise the application steps
 
     will run and bring the application up but it will detach from the process after. so the containers do run under background
 
+    ```docker-compose up -d --build --force-recreate
+
+    Will rebuild the application and uses new new instaces while detaching from the process

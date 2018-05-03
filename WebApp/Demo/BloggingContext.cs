@@ -7,9 +7,24 @@ namespace WebApp.Demo
     {
         public DbSet<Post> Posts { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public BloggingContext(DbContextOptions<BloggingContext> config): base(config)
         {
-            optionsBuilder.UseSqlServer(@"Server=db;Database=blog;User=sa;Password=DemoPassword.1;");
+
+        }
+        // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        // {
+        //     //optionsBuilder.UseSqlServer(@"Server=db;Database=blog;User=sa;Password=DemoPassword.1;");
+        // }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder){
+            modelBuilder.Entity<Post>(entity =>
+                {
+                    entity.ToTable("posts");
+                    entity.Property(e=>e.PostId).HasColumnType("bigint");
+                    entity.Property(e=>e.Title).HasColumnType("nvarchar(500)");
+                    entity.Property(e=>e.Content).HasColumnType("nvarchar(max)");
+                }
+            );
         }
     }
 
@@ -19,6 +34,5 @@ namespace WebApp.Demo
         public string Title { get; set; }
         public string Content { get; set; }
 
-        public int BlogId { get; set; }
     }
 }
