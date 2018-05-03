@@ -50,3 +50,13 @@ Dockerise the application steps
    docker run -d -p 8080:80 --name myapp aspnetapp
 
    This will allow us to see that the application is hosted on http://localhost:8080
+
+5, Use docker compose command
+    ``` docker-compose up
+
+    will run and bring the application but the terminal will be still attached to the process
+
+    ``` docker-compose up -d
+
+    will run and bring the application up but it will detach from the process after. so the containers do run under background
+

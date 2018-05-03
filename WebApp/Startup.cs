@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WebApp.Data;
 using WebApp.Models;
 using WebApp.Services;
+using WebApp.Demo;
 
 namespace WebApp
 {
@@ -28,13 +29,13 @@ namespace WebApp
         {
             // Database connection string.
             // Make sure to update the Password value below from "Your_password123" to your actual password.
-            var connection = @"Server=db;Database=master;User=sa;Password=DemoPassword;";
+            var connection = @"Server=db;Database=blog;User=sa;Password=DemoPassword.1;";
 
             // This line uses 'UseSqlServer' in the 'options' parameter
             // with the connection string defined above.
-            services.AddDbContext<ApplicationDbContext>(
-            options => options.UseSqlServer(connection));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
 
+            services.AddDbContext<BloggingContext>(options=>options.UseSqlServer(connection));
             // services.AddDbContext<ApplicationDbContext>(options =>
             //     options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
 

@@ -12,10 +12,10 @@ services:
       - "8080:80"
   db:
     image: "microsoft/mssql-server-linux:latest"
-    container_name: testDb
+    container_name: db
     ports:
       - "1433:1433"
     environment:
       ACCEPT_EULA:  "Y"
-      SA_PASSWORD:  "DemoPassword"
+      SA_PASSWORD:  "DemoPassword.1"
       MSSQL_PID: "Developer"
