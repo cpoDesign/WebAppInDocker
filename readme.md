@@ -71,3 +71,8 @@ Dockerise the application steps
     ```docker-compose up -d --build --force-recreate
 
     Will rebuild the application and uses new new instaces while detaching from the process
+
+
+== ref. links: 
+
+ - https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/
