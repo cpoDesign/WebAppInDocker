@@ -10,12 +10,8 @@ using WebApp.Models;
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
-    {private readonly BloggingContext _context;
-
-            public HomeController(BloggingContext context)
-            {
-            _context = context;
-            }
+    {
+        
             public IActionResult Index()
         {
             return View();
@@ -39,8 +35,8 @@ namespace WebApp.Controllers
         {
             try{
                
-                    var blogs = _context.Posts.ToList();
-                        ViewData["Message"]  = $"Number Of posts{blogs.Count}";
+                    var blogs = new BloggingDataAccess().GetPosts();
+                        ViewData["Message"]  = $"Number Of posts{blogs.Count()}";
                
             }catch(Exception ex){
 

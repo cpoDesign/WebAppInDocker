@@ -29,18 +29,19 @@ namespace WebApp
         {
             // Database connection string.
             // Make sure to update the Password value below from "Your_password123" to your actual password.
-            var connection = @"Server=db;Database=blog;User=sa;Password=DemoPassword.1;";
+            var connectionStr = "Server=db;Database=Test;User=sa;Password=DemoPassword.1;";
 
             // This line uses 'UseSqlServer' in the 'options' parameter
             // with the connection string defined above.
             // services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connection));
-   
-            services.AddDbContext<BloggingContext>(options => 
-                        options.UseSqlServer(connection) 
-                            .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
-                            );
+            // services.AddDbContext<BloggingContext>(options => 
+            //             //options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")) 
+            //             options.UseSqlServer(connectionStr) 
+            //                 .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+            //                 );
+           
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlite(connectionStr));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -55,6 +56,22 @@ namespace WebApp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            // try
+            // {
+            //     using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>()
+            //     .CreateScope())
+            //     {
+            //        serviceScope.ServiceProvider.GetService<BloggingContext>().Database.EnsureCreated();
+            //         serviceScope.ServiceProvider.GetService<BloggingContext>().Database.Migrate();
+            //     }
+            // }
+            // catch (Exception ex)
+            // {
+            //     throw ex;
+            //     //Log.Error(ex, "Failed to migrate or seed database");
+            // }
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

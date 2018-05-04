@@ -72,6 +72,16 @@ Dockerise the application steps
 
     Will rebuild the application and uses new new instaces while detaching from the process
 
+6. Usage of DAPPER within the container set
+    While using containers, it is important to remember that the ports mapped to your machine are actually exposed on you localhost machine.
+
+    therefore if your container as mine is exporting MSSQL on port 1433 we can access the server with the connection string as" Server=localhost;Database=Test;User=sa;Password=DemoPassword.1;
+
+    dapper in this case has been installed using the following command:
+    dotnet add package dapper
+
+    and then I have added BloggingDataAccess class that contains data access logic.
+
 
 == ref. links: 
 
