@@ -10,7 +10,7 @@ namespace WebApp.Demo
 
     public class BloggingDataAccess
     {
-        private string connectionString = @"Server=localhost;Database=Test;User=sa;Password=P@55w0rd;";
+        private string connectionString = @"Server=mssql;Database=Test;User=sa;Password=P@55w0rd;";
 
         public IEnumerable<Post> GetPosts()
         {
