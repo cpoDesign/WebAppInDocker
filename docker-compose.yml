@@ -1,0 +1,36 @@
+version: '3.3'
+
+services:
+  mssql:
+    image: microsoft/mssql-server-linux:latest
+    ports:
+      - 1433:1433
+    volumes:
+      #- /var/opt/mssql
+      # we copy our scripts onto the container
+      - ./DB:/usr/src/app 
+    # bash will be executed from that path, our scripts folder
+    working_dir: /usr/src/app 
+    # run the entrypoint.sh that will import the data AND sqlserver
+    command: sh -c ' chmod +x ./entrypoint.sh; ./entrypoint.sh & /opt/mssql/bin/sqlservr;'
+    environment:
+      ACCEPT_EULA: Y
+      SA_PASSWORD: P@55w0rd
+      MSSQL_PID: "Developer"
+    # don't use this if you don't want to persit data between docker up and down
+    # volumes_from:
+    #   - mssqldata
+  # db:
+  #   image: "microsoft/mssql-server-linux:latest"
+  #   container_name: db
+    
+  #   ports:
+  #     - "1433:1433"
+  #   environment:
+  #     ACCEPT_EULA:  "Y"
+  #     SA_PASSWORD:  "DemoPassword.1"
+  #     MSSQL_PID: "Developer"
+  #   networks:
+  #     mynetwork:
+  #       aliases:
+  #         - db1.internal.prod.example.com
