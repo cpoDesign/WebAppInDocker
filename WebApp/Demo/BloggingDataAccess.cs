@@ -3,13 +3,14 @@ using System.Data;
 using System.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Dapper;
+using WebApp.Entities;
 
 namespace WebApp.Demo
 {
-   
+
     public class BloggingDataAccess
     {
-        private string connectionString = @"Server=localhost;Database=Test;User=sa;Password=DemoPassword.1;";
+        private string connectionString = @"Server=localhost;Database=Test;User=sa;Password=P@55w0rd;";
 
         public IEnumerable<Post> GetPosts()
         {
@@ -22,13 +23,5 @@ namespace WebApp.Demo
                 return db.Query<Post>(insertQuery, db);
             }
         }
-    }
-
-    public class Post
-    {
-        public int Id { get; set; }
-        public string Title { get; set; }
-        public string Content { get; set; }
-
     }
 }

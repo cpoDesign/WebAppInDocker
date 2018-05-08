@@ -1,4 +1,5 @@
 version: '3.3'
+# ref to https://docs.docker.com/compose/aspnet-mssql-compose/
 
 services:
   aspnetapp:
@@ -27,6 +28,25 @@ services:
       ACCEPT_EULA: Y
       SA_PASSWORD: P@55w0rd
       MSSQL_PID: "Developer"
+
+
+
+# # # networks: 
+# # #   front:
+# # #      # use the bridge driver, but enable IPv6
+# # #       driver: bridge
+# # #       driver_opts:
+# # #           com.docker.network.enable_ipv6: "true"
+# # #       ipam:
+# # #           driver: default
+# # #           config:
+# # #               - subnet: 172.16.238.0/24
+# # #               gateway: 172.16.238.1
+# # #               - subnet: "2001:3984:3989::/64"
+# # #               gateway: "2001:3984:3989::1"
+# # #    back:
+# # #       # use a custom driver, with no options
+# # #       driver: custom-driver-1   
     # don't use this if you don't want to persit data between docker up and down
     # volumes_from:
     #   - mssqldata
